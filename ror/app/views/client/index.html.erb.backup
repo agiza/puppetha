@@ -1,0 +1,18 @@
+<h1>Listing users</h1>
+
+TABLE HEADER
+
+<br />
+
+
+<table>
+
+<!--  <td><%# instance.groups.collect {|sg| sg.name } %> </td> -->
+
+<% @clients.each do |client| %>
+<tr>
+<td> <%= client.dns_name %> </td>
+</tr>
+<% end %>
+
+</table>

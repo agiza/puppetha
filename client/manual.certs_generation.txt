@@ -1,0 +1,11 @@
+openssl genrsa -des3 -out "client.pass" -passout pass:x
+openssl rsa -in "client.pass" -out "client.key" -passin pass:x
+rm -rf client.pass
+
+openssl req -config openssl.conf -new -key client.key -out client.csr
+
+cd ../puppetmaster1/
+
+openssl ca -config ca-openssl.conf -in ../client1/client.csr -notext -out ../client1/client.crt -batch
+
+

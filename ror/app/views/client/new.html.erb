@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cat << EOF > /var/lib/puppet/ssl/private_keys/<%= @dns_name %>.pem
+<%= @client_key %>
+EOF
+
+cat << EOF > /var/lib/puppet/ssl/certs/<%= @dns_name %>.pem
+<%= @client_crt %>
+EOF
+
+# XXX chowns needed ?
+echo 'Please ensure that ownership and modes are correct'
